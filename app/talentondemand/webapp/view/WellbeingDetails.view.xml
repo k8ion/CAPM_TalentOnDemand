@@ -1,0 +1,211 @@
+<mvc:View
+    controllerName="talentondemand.controller.WellbeingDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+    <Page
+        id="wellbeingDetailsPage"
+        title="Well-being Subsidy - Eligible Items"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <VBox
+                id="_sId_WellBeingDetails_VBox1"
+                class="sapUiSmallMargin"
+            >
+                <MessageStrip
+                    id="_sId_WellBeingDetails_MessageStrip"
+                    text="Below is the complete list of items eligible for reimbursement under the Well-being Subsidy program."
+                    type="Information"
+                    showIcon="true"
+                    class="sapUiMediumMarginBottom"
+                />
+
+                <!-- Grid Layout for All Panels -->
+                <l:Grid
+                    id="_sId_WellBeingDetails_Grid"
+                    defaultSpan="L4 M6 S12"
+                    hSpacing="1"
+                    vSpacing="1"
+                    containerQuery="true"
+                >
+                    <!-- First Three Panels - Each takes 1/3 of width -->
+                    <Panel
+                        id="fitnessPanel"
+                        headerText="Fitness and Exercise"
+                        expandable="true"
+                        expanded="false"
+                    >
+                        <layoutData>
+                            <l:GridData id="_IDGenGridData1" span="L4 M6 S12" />
+                        </layoutData>
+                        <content>
+                            <ScrollContainer
+                                id="_sId_Fitness_ScrollContainer"
+                                height="320px"
+                                vertical="true"
+                                horizontal="false"
+                            >
+                                <List
+                                    id="_sId_WellBeingDetails_List1"
+                                    items="{eligibleItems>/Fitness}"
+                                    noDataText="No items available"
+                                    mode="None"
+                                >
+                                    <StandardListItem
+                                        id="_sId_WellBeingDetails_stdList1"
+                                        title="{eligibleItems>itemName}"
+                                        description="{eligibleItems>description}"
+                                        icon="sap-icon://gym"
+                                        iconDensityAware="false"
+                                    />
+                                </List>
+                            </ScrollContainer>
+                        </content>
+                    </Panel>
+
+                    <Panel
+                        id="healthcarePanel"
+                        headerText="Healthcare and Wellness"
+                        expandable="true"
+                        expanded="false"
+                    >
+                        <layoutData>
+                            <l:GridData id="_IDGenGridData2" span="L4 M6 S12" />
+                        </layoutData>
+                        <content>
+                            <ScrollContainer
+                                id="_sId_Healthcare_ScrollContainer"
+                                height="320px"
+                                vertical="true"
+                                horizontal="false"
+                            >
+                                <List
+                                    id="_sId_WellBeingDetails_List2"
+                                    items="{eligibleItems>/Healthcare}"
+                                    noDataText="No items available"
+                                    mode="None"
+                                >
+                                    <StandardListItem
+                                        id="_sId_WellBeingDetails_stdList2"
+                                        title="{eligibleItems>itemName}"
+                                        description="{eligibleItems>description}"
+                                        icon="sap-icon://stethoscope"
+                                        iconDensityAware="false"
+                                    />
+                                </List>
+                            </ScrollContainer>
+                        </content>
+                    </Panel>
+
+                    <Panel
+                        id="mentalHealthPanel"
+                        headerText="Mental Health and Mindfulness"
+                        expandable="true"
+                        expanded="false"
+                    >
+                        <layoutData>
+                            <l:GridData id="_IDGenGridData3" span="L4 M6 S12" />
+                        </layoutData>
+                        <content>
+                            <ScrollContainer
+                                id="_sId_MentalHealth_ScrollContainer"
+                                height="320px"
+                                vertical="true"
+                                horizontal="false"
+                            >
+                                <List
+                                    id="_sId_WellBeingDetails_List3"
+                                    items="{eligibleItems>/MentalHealth}"
+                                    noDataText="No items available"
+                                    mode="None"
+                                >
+                                    <StandardListItem
+                                        id="_sId_WellBeingDetails_stdList3"
+                                        title="{eligibleItems>itemName}"
+                                        description="{eligibleItems>description}"
+                                        icon="sap-icon://heart"
+                                        iconDensityAware="false"
+                                    />
+                                </List>
+                            </ScrollContainer>
+                        </content>
+                    </Panel>
+
+                    <!-- Last Two Panels - Each takes 1/2 of width -->
+                    <Panel
+                        id="nutritionPanel"
+                        headerText="Nutrition and Diet"
+                        expandable="true"
+                        expanded="false"
+                    >
+                        <layoutData>
+                            <l:GridData id="_IDGenGridData4" span="L6 M6 S12" />
+                        </layoutData>
+                        <content>
+                            <ScrollContainer
+                                id="_sId_Nutrition_ScrollContainer"
+                                height="320px"
+                                vertical="true"
+                                horizontal="false"
+                            >
+                                <List
+                                    id="_sId_WellBeingDetails_List4"
+                                    items="{eligibleItems>/Nutrition}"
+                                    noDataText="No items available"
+                                    mode="None"
+                                >
+                                    <StandardListItem
+                                        id="_sId_WellBeingDetails_stdList4"
+                                        title="{eligibleItems>itemName}"
+                                        description="{eligibleItems>description}"
+                                        icon="sap-icon://nutrition-activity"
+                                        iconDensityAware="false"
+                                    />
+                                </List>
+                            </ScrollContainer>
+                        </content>
+                    </Panel>
+
+                    <Panel
+                        id="workLifePanel"
+                        headerText="Work-Life Balance"
+                        expandable="true"
+                        expanded="false"
+                    >
+                        <layoutData>
+                            <l:GridData id="_IDGenGridData5" span="L6 M6 S12" />
+                        </layoutData>
+                        <content>
+                            <ScrollContainer
+                                id="_sId_WorkLife_ScrollContainer"
+                                height="320px"
+                                vertical="true"
+                                horizontal="false"
+                            >
+                                <List
+                                    id="_sId_WellBeingDetails_List5"
+                                    items="{eligibleItems>/WorkLife}"
+                                    noDataText="No items available"
+                                    mode="None"
+                                >
+                                    <StandardListItem
+                                        id="_sId_WellBeingDetails_stdList5"
+                                        title="{eligibleItems>itemName}"
+                                        description="{eligibleItems>description}"
+                                        icon="sap-icon://family-care"
+                                        iconDensityAware="false"
+                                    />
+                                </List>
+                            </ScrollContainer>
+                        </content>
+                    </Panel>
+                </l:Grid>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

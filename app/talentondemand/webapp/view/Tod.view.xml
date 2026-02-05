@@ -1,0 +1,291 @@
+<mvc:View
+    controllerName="talentondemand.controller.Tod"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:core="sap.ui.core"
+    xmlns:layout="sap.ui.layout"
+    height="100%"
+    displayBlock="true"
+>
+    <Page
+        id="todPage"
+        showHeader="true"
+        enableScrolling="true"
+    >
+        <customHeader>
+            <OverflowToolbar
+                id="sID_todHeader_Hbox1"
+                height="3.25rem"
+            >
+                <!-- Left: hamburger + brand -->
+                <Button
+                    id="sID_TodHeader_btn1"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    tooltip="Menu"
+                    press=".onPressHamburger"
+                />
+
+                <HBox
+                    id="sID_TodHeader_Hbox1"
+                    alignItems="Center"
+                    class="sapUiTinyMarginBegin"
+                >
+                    <Title
+                        id="sID_TodHeader_title1"
+                        text="Talent"
+                        level="H4"
+                        titleStyle="H4"
+                        class="hdrTalentGreen"
+                    />
+                    <Title
+                        id="sID_TodHeader_title2"
+                        text="OnDemand"
+                        level="H4"
+                        titleStyle="H4"
+                        class="hdrRestBlack"
+                    />
+                </HBox>
+
+                <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+
+                <!-- Center: search -->
+                <SearchField
+                    id="sfGlobal"
+                    width="28rem"
+                    placeholder="Search by ID or text..."
+                    search=".onSearch"
+                    liveChange=".onSearchLiveChange"
+                />
+
+                <ToolbarSpacer id="_IDGenToolbarSpacer2" />
+
+                <!-- Right: actions -->
+                <Button
+                    id="btnHelp"
+                    icon="sap-icon://sys-help"
+                    type="Transparent"
+                    tooltip="Help"
+                    press=".onPressHelp"
+                />
+
+                <Button
+                    id="btnSettings"
+                    icon="sap-icon://action-settings"
+                    type="Transparent"
+                    tooltip="Settings"
+                    press=".onPressSettings"
+                />
+
+                <Button
+                    id="btnNotif"
+                    icon="sap-icon://bell"
+                    type="Transparent"
+                    tooltip="Notifications"
+                    press=".onPressNotifications"
+                />
+
+                <!-- Simple user menu -->
+                <MenuButton
+                    id="mbUser"
+                    type="Transparent"
+                    text="{view>/userInitials}"
+                    tooltip="{view>/userName}"
+                >
+                    <menu>
+                        <Menu id="_IDGenMenu">
+                            <MenuItem
+                                id="_IDGenMenuItem"
+                                text="My Profile"
+                                key="profile"
+                                icon="sap-icon://employee"
+                            />
+                            <MenuItem
+                                id="_IDGenMenuItem1"
+                                text="Preferences"
+                                key="prefs"
+                                icon="sap-icon://settings"
+                            />
+                            <MenuItem
+                                id="_IDGenMenuItem2"
+                                text="Sign out"
+                                key="signout"
+                                icon="sap-icon://log"
+                            />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+            </OverflowToolbar>
+        </customHeader>
+
+        <content>
+            <VBox
+                id="sID_wellbeing_Vbox1"
+                class="sapUiMediumMargin"
+                width="100%"
+            >
+                <cssgrid:CSSGrid
+                    id="cardGrid"
+                    gridTemplateColumns="repeat(auto-fit, minmax(200px, max-content))"
+                    gridGap="3rem"
+                    class="independentCardGrid"
+                    xmlns:cssgrid="sap.ui.layout.cssgrid"
+                >
+                    <!-- Well-being Subsidy Card (Short) -->
+                    <f:Card
+                        id="sID_wellbeing_Card"
+                        width="250px"
+                    >
+                        <f:header>
+                            <card:Header
+                                id="sID_wellbeing_CardHeader"
+                                title="Well-being Subsidy"
+                                iconSrc="sap-icon://accessibility"
+                                subtitle="{= 'Remaining (' + ${wellbeing>/currency} + ')' }"
+                                press="OnWellBeingSubsidyPress"
+                            />
+                        </f:header>
+                        <f:content>
+                            <VBox
+                                id="sID_wellbeing_Vbox2"
+                                 class="sapUiSmallMargin sapUiResponsiveContentPadding sapUiMediumMarginBegin"
+                                alignItems="Start"
+                            >
+                                <NumericContent
+                                    id="sID_wellbeing_Card_remainingCount"
+                                    withMargin="false"
+                                    value="{
+                                path: 'wellbeing>/remaining',
+                                formatter: '.formatter.formatCurrency'
+                            }"
+                                    truncateValueTo="10"
+                                />
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <!-- Compliance Resource Card -->
+                    <f:Card
+                        id="sID_compliance_Card"
+                        width="400px"
+                    >
+                        <f:header>
+                            <card:Header
+                                id="sID_compliance_CardHeader"
+                                class="hdrComplianceHeaderLarge"
+                                title="Compliance Resource"
+                                iconSrc="sap-icon://complete"
+                            />
+                        </f:header>
+                        <f:content>
+                            <VBox
+                                id="sID_compliance_content"
+                                 class="sapUiSmallMargin sapUiResponsiveContentPadding sapUiMediumMarginBegin"
+                            >
+                                <HBox
+                                    id="_IDGenHBox1"
+                                    alignItems="Center"
+                                    width="100%"
+                                >
+                                    <!-- <core:Icon
+                                        id="_IDGenIcon1"
+                                        src="sap-icon://activity-individual"
+                                        size="2rem"
+                                        color="#0854a0"
+                                        class="sapUiMediumMarginEnd"
+                                        xmlns:core="sap.ui.core"
+                                    /> -->
+                                    <Title
+                                        id="_IDGenTitle3"
+                                        text="View My Compliance Dashboard"
+                                        level="H4"
+                                        wrapping="true"
+                                    />
+                                </HBox>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <!-- Holiday & Time -->
+                    <f:Card
+                        id="sID_HolidayTimeCard"
+                        width="400px"
+                    >
+                        <f:header>
+                            <card:Header
+                                id="sID_HolidayTimeCardHeader"
+                                title="Holiday and Time"
+                                iconSrc="sap-icon://time-off"
+                            />
+                        </f:header>
+                        <f:content>
+                            <VBox
+                                id="s_Id_HolidayTimeCard_VBox1"
+                                 class="sapUiSmallMargin sapUiResponsiveContentPadding sapUiMediumMarginBegin"
+                            >
+                                <Title
+                                    id="s_Id_HolidayTimeCard_TextOverallPTO"
+                                    text="Overall PTO Hours Remaining"
+                                />
+                                <ObjectNumber
+                                    id="s_Id_HolidayTimeCard_ObjectNumberOverallPTO"
+                                    number="{= ${ptoModel>/overallRemainingHrs}.toFixed(1) + 'h'}"
+                                    emphasized="true"
+                                />
+
+                                <Title
+                                    id="s_Id_HolidayTimeCard_TextPrivilegePTO"
+                                    text="Privilege Leave Remaining (PL)"
+                                    class="sapUiSmallMarginTop"
+                                />
+                                <ObjectNumber
+                                    id="s_Id_HolidayTimeCard_ObjectNumberPrivilegePTO"
+                                    number="{= ${ptoModel>/privilegeRemainingHrs}.toFixed(1) + 'h'}"
+                                    emphasized="true"
+                                />
+
+                                <Title
+                                    id="s_Id_HolidayTimeCard_TextcasualPTO"
+                                    text="Casual/ Sick Leave Remaining (CL/SL)"
+                                    class="sapUiSmallMarginTop"
+                                />
+                                <ObjectNumber
+                                    id="s_Id_HolidayTimeCard_ObjectNumbercasualPTO"
+                                    number="{= ${ptoModel>/casualSickRemainingHrs}.toFixed(1) + 'h'}"
+                                    emphasized="true"
+                                />
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <GenericTile
+                        id="sID_genericTile_Announcements"
+                        header="Announcements"
+                        subheader="Latest updates"
+                        press=".onAnnouncementTilePress"
+                        class="sapUiSmallMargin"
+                        frameType="TwoByOne"
+                    >
+                        <tileContent>
+                            <TileContent
+                                id="_IDGenTileContent1"
+                            >
+                                <content>
+                                    <ImageContent
+                                        id="_IDGenImageContent"
+                                        src="sap-icon://notification"
+                                    />
+                                </content>
+                            </TileContent>
+                        </tileContent>
+                    </GenericTile>
+
+
+                    
+                </cssgrid:CSSGrid>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

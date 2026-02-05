@@ -1,0 +1,13 @@
+ID,subsidy_ID,productID,productName,description,vendor,amount,receiptDate,createdAt,createdBy,modifiedAt,modifiedBy
+wp-001,b7f8a9c0-1001-4d2a-9b01-111111111111,WP001,Gym Membership,Monthly gym membership subscription,FitZone Gyms,1200.00,2026-01-10,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-002,b7f8a9c0-1002-4d2a-9b01-222222222222,WP002,Yoga Classes,3-month yoga program,Wellness Studio,3500.00,2026-01-12,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-003,b7f8a9c0-1002-4d2a-9b01-222222222222,WP003,Meditation App,Annual mindfulness subscription,CalmMind Premium,2100.00,2026-01-15,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-004,b7f8a9c0-1003-4d2a-9b01-333333333333,WP004,Resistance Bands,Home workout equipment set,FitGear Store,75.00,2026-01-08,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-005,b7f8a9c0-1004-4d2a-9b01-444444444444,WP005,Treadmill,Premium home treadmill,HomeGym Pro,18000.00,2026-01-05,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-006,b7f8a9c0-1004-4d2a-9b01-444444444444,WP006,Dietician Consultation,3-month personalized nutrition plan,HealthFirst Clinic,4500.00,2026-01-20,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-007,b7f8a9c0-1004-4d2a-9b01-444444444444,WP007,Mental Health Sessions,5 therapy sessions package,MindWell Counseling,1500.00,2026-01-22,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-008,b7f8a9c0-1005-4d2a-9b01-555555555555,WP008,Yoga Mat Premium,Eco-friendly yoga mat with carry bag,Wellness Mart,120.00,2026-01-14,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-009,b7f8a9c0-1007-4d2a-9b01-777777777777,WP009,Health Supplements,Monthly protein and vitamin pack,NutriLife India,210.00,2026-01-18,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-010,b7f8a9c0-1008-4d2a-9b01-888888888888,WP010,Water Bottle Smart,Smart hydration tracking bottle,TechFit Store,40.00,2026-01-11,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-011,b7f8a9c0-1009-4d2a-9b01-999999999999,WP011,Swimming Goggles Pro,Professional swimming equipment,AquaSports,399.00,2026-01-22,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed
+wp-012,b7f8a9c0-1010-4d2a-9b01-aaaaaaaaaaaa,WP012,Jump Rope Premium,Weighted jump rope for cardio,SportsPro,155.00,2026-01-16,2026-01-25T09:05:00Z,seed,2026-01-25T09:05:00Z,seed

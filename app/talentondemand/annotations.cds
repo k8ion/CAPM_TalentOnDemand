@@ -1,0 +1,1 @@
+using TalentOnDemandService as service from '../../srv/talent-ondemand-service';

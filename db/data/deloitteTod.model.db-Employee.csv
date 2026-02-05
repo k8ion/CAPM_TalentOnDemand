@@ -1,0 +1,11 @@
+ID,UserId,firstName,lastName,email,region,businessUnit,contactDetails,createdAt,createdBy,modifiedAt,modifiedBy
+a1d2c3e4-0001-4f10-8a11-111111111111,E1001,Aarav,Shah,aarav.shah@example.com,IN,Technology,phone=+91-9000000001;city=Bengaluru,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0002-4f10-8a11-222222222222,E1002,Meera,Iyer,meera.iyer@example.com,IN,Consulting,phone=+91-9000000002;city=Hyderabad,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0003-4f10-8a11-333333333333,E1003,Jordan,Lee,jordan.lee@example.com,US,Consulting,phone=+1-202-555-0103;city=Arlington,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0004-4f10-8a11-444444444444,E1004,Priya,Nair,priya.nair@example.com,IN,Risk Advisory,phone=+91-9000000004;city=Pune,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0005-4f10-8a11-555555555555,E1005,Sam,Patel,sam.patel@example.com,CA,Technology,phone=+1-416-555-0105;city=Toronto,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0006-4f10-8a11-666666666666,E1006,Emily,Chen,emily.chen@example.com,US,Tax,phone=+1-312-555-0106;city=Chicago,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0007-4f10-8a11-777777777777,E1007,Oliver,Brown,oliver.brown@example.com,UK,Audit,phone=+44-20-5550-0107;city=London,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0008-4f10-8a11-888888888888,E1008,Sofia,Martinez,sofia.martinez@example.com,ES,Consulting,phone=+34-91-555-0108;city=Madrid,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0009-4f10-8a11-999999999999,E1009,Liam,OConnor,liam.oconnor@example.com,IE,Technology,phone=+353-1-555-0109;city=Dublin,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed
+a1d2c3e4-0010-4f10-8a11-aaaaaaaaaaaa,E1010,Aisha,Khan,aisha.khan@example.com,AU,Consulting,phone=+61-2-5550-0110;city=Sydney,2026-01-25T09:00:00Z,seed,2026-01-25T09:00:00Z,seed

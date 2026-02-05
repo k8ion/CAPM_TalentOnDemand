@@ -1,0 +1,6 @@
+.hdrTalentGreen.sapMTitle { color: #86BC25 !important; } 
+.hdrRestBlack.sapMTitle   { color: #000000 !important; } 
+
+.independentCardGrid{
+    align-items: start;
+}
