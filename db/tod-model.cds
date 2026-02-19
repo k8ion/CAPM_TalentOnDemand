@@ -45,11 +45,43 @@ entity PTO : cuid, managed {
 }
 
 // Holidays
-entity Holiday : cuid, managed {
-  region      : String(40);
+entity Holidaylist : cuid{
+  day         : String(60);
   holidayName : String(60);
   date        : Date;
   description : String(120);
+}
+
+//CoachInformation
+entity CoachInformation : cuid{
+  employee  : Association to Employee;
+  coachName : String(100);
+}
+
+// entity DevelopmentPlan : cuid, managed {
+//   employee   : Association to Employee;
+//   planYear   : Integer;
+//   objectives : String(150);
+//   items      : Composition of many DevelopmentPlanItem
+//                  on items.plan = $self;
+// }
+// entity DevelopmentPlanItem : cuid, managed {
+//   plan        : Association to DevelopmentPlan;
+//   title       : String(100);
+//   description : String(255);
+//   status      : String(20); // ('Completed', 'Enrolled', 'Not Enrolled')
+// }
+
+entity DevelopmentPlan : cuid{
+  employee : Association to  Employee;
+  Completed : Integer;
+  Enrolled : Integer;
+  NotEnrolled : Integer;
+}
+
+entity resourceManager : cuid {
+  employee    : Association to Employee;
+  managerName : String(100);
 }
 
 // Expense
@@ -63,21 +95,7 @@ entity Expense : cuid, managed {
   submittedAt : DateTime;
 }
 
-entity DevelopmentPlan : cuid, managed {
-  employee   : Association to Employee;
-  planYear   : Integer;
-  objectives : String(150);
-  items      : Composition of many DevelopmentPlanItem
-                 on items.plan = $self;
-}
 
-entity DevelopmentPlanItem : cuid, managed {
-  plan        : Association to DevelopmentPlan;
-  title       : String(100);
-  description : String(255);
-  status      : String(20); // ('Completed', 'Enrolled', 'Not Enrolled')
-  type        : String(20); // ('Experience', 'Exposure', or other future types)
-}
 
 
 entity InsuranceBenefitRequest : cuid, managed {
@@ -117,10 +135,6 @@ entity PerformanceReview : cuid, managed {
   feedback         : String(255);
 }
 
-entity CoachInformation : cuid, managed {
-  employee  : Association to Employee;
-  coachName : String(100);
-}
 
 // Resource Management & Assignment
 entity ResourceAssignment : cuid, managed {
@@ -133,10 +147,6 @@ entity ResourceAssignment : cuid, managed {
   status         : String(15);
 }
 
-entity resourceManager : cuid, managed {
-  employee    : Association to Employee;
-  managerName : String(100);
-}
 
 // Education/Skill/Language—Career Data
 entity Education : cuid, managed {

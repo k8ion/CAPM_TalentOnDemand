@@ -11,7 +11,9 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-talentondemand": "cds watch --open talentondemand/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-talentondemand": "cds watch --open talentondemand/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-wellbeingproducts": "cds watch --open deloittetod.tod.wellbeingproducts/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-holidaylist": "cds watch --open com.deloitte.tod.holidaylist.holidaylist/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "cds": {
     "requires": {
@@ -23,5 +25,9 @@
   "private": true,
   "workspaces": [
     "app/*"
+  ],
+  "sapux": [
+    "app/wellbeingproducts",
+    "app/holidaylist"
   ]
 }

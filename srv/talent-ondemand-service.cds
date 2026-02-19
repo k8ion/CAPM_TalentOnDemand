@@ -1,11 +1,19 @@
 using {deloitteTod.model.db as tod} from '../db/tod-model';
 
 service TalentOnDemandService @(path: '/odata/v4/my') {
-    entity Employees          as projection on tod.Employee;
-    entity WellBeingSubsidies as projection on tod.WellBeingSubsidy;
-    entity WellbeingProduct   as projection on tod.WellbeingProduct;
-    entity PTO                as projection on tod.PTO;
+    entity Employees           as projection on tod.Employee;
+    entity WellBeingSubsidies  as projection on tod.WellBeingSubsidy;
+    entity PTO                 as projection on tod.PTO;
+    //entity WellbeingProduct   as projection on tod.WellbeingProduct;
+    entity Holidaylist         as projection on tod.Holidaylist;
+    entity CoachInformation    as projection on tod.CoachInformation;
+    entity DevelopmentPlan     as projection on tod.DevelopmentPlan;
+    entity resourceManager     as projection on tod.resourceManager;
 
+    @readonly
+    entity MyWellbeingProducts as projection on tod.WellbeingProduct;
+    @readonly
+    entity MyHolidaylist as projection on tod.Holidaylist;
 
     function getWellBeingRemaining() returns {
         userId    : String(50);
@@ -21,8 +29,41 @@ service TalentOnDemandService @(path: '/odata/v4/my') {
         privilegeRemainingHrs  : Decimal(9, 1);
         casualSickRemainingHrs : Decimal(9, 1);
     };
+
+    function getNextHoliday()        returns {
+        day         : String(60);
+        holidayName : String(60);
+        date        : Date;
+        description : String(120);
+    };
+
+    function getCoachInformation()   returns {
+        userId    : String(50);
+        coachName : String(100);
+    }
+
+    function getDevelopmentPlan()    returns {
+        userId      : String(50);
+        Completed   : Integer;
+        Enrolled    : Integer;
+        NotEnrolled : Integer;
+    }
+
+    function getRMInformation()   returns {
+        userId    : String(50);
+        managerName : String(100);
+    }
 }
 
+
+// function getWellBeingProducts()  returns {
+//     productID   : String(10);
+//     productName : String(100);
+//     description : String(500);
+//     vendor      : String(100);
+//     amount      : Decimal(15, 2);
+//     receiptDate : Date;
+// }
 
 // entity Holidays                 as projection on tod.Holiday;
 // entity PTOs                     as projection on tod.PTO;

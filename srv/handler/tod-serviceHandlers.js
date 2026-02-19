@@ -3,7 +3,7 @@ const cds = require("@sap/cds");
 const { SELECT } = cds.ql;
 
 module.exports = (srv) => {
-  const { Employees, WellBeingSubsidies, PTO } = srv.entities;
+  const { Employees, WellBeingSubsidies, PTO, WellbeingProduct, MyWellbeingProducts, Holidaylist, CoachInformation, DevelopmentPlan, resourceManager, MyHolidaylist } = srv.entities;
 
   const WellBeingRemaining = async (req) => {
     const tx = cds.tx(req);
@@ -40,8 +40,8 @@ module.exports = (srv) => {
     const emp = await tx.run(SELECT.one.from(Employees).where({ UserId: userId }));
     if (!emp) return req.reject(404, `Employee not found for UserId: ${userId}`);
 
-    const allHours = await tx.run(SELECT.one.from(PTO).where({ employee_ID: emp.ID })
-    );
+    const allHours = await tx.run(SELECT.one.from(PTO).where({ employee_ID: emp.ID }));
+
     if (!allHours) return req.reject(404, `PTO not found for employee: ${emp.ID}`);
 
     return {
@@ -52,5 +52,98 @@ module.exports = (srv) => {
     };
   };
 
-  return { WellBeingRemaining, PTOHours };
+  //My Wellbeing Products handler for Fiori
+  srv.on("READ", MyWellbeingProducts, async (req) => {
+    const tx = cds.tx(req);
+
+    const userId = req?.user?.id;
+    if (!userId) req.reject(401, "No logged-in user id available");
+
+    const emp = await tx.run(SELECT.one.from(Employees).where({ UserId: userId }));
+    if (!emp) req.reject(404, `Employee not found for UserId: ${userId}`);
+
+    const subsidy = await tx.run(
+      SELECT.one.from(WellBeingSubsidies).where({ employee_ID: emp.ID })
+    );
+    if (!subsidy) return [];
+
+    req.query.where({ subsidy_ID: subsidy.ID });
+    return tx.run(req.query);
+  });
+
+  //Holiday List handler for Fiori
+  srv.on("READ", MyHolidaylist, (req) => cds.tx(req).run(req.query));
+
+
+  //Next Holiday function
+  const nextHoliday = async (req) => {
+    const tx = cds.tx(req);
+
+    const now = new Date();
+    now.setHours(0, 0, 0, 0);
+
+    const today = now.toISOString().slice(0, 10);
+
+    const holiday = await tx.run(SELECT.one.from(Holidaylist).columns("ID", "day", "holidayName", "date", "description")
+      .where({ date: { ">=": today } })
+      .orderBy("date asc"));
+
+    if (!holiday) req.reject(404, "No upcoming holiday found");
+
+    return holiday;
+  }
+
+
+  //fetch Coach Information
+  const coachInformaiton = async (req) => {
+    const tx = cds.tx(req);
+
+    const userId = req?.user?.id;
+    if (!userId) return req.reject(401, "No logged-in user id available");
+
+    const emp = await tx.run(SELECT.one.from(Employees).where({ UserId: userId }));
+    if (!emp) return req.reject(404, `Employee not found for UserId: ${userId}`);
+
+    const coachName = await tx.run(SELECT.from(CoachInformation).where({ employee_ID: emp.ID }));
+
+    if (!coachName) return req.reject(404, `Coach not found for employee: ${emp.ID}`);
+
+    return coachName;
+  }
+
+
+  //fetch Development Path
+  const devPath = async (req) => {
+    const tx = cds.tx(req);
+
+    const userId = req?.user?.id;
+    if (!userId) return req.reject(401, "No logged-in user id available");
+
+    const emp = await tx.run(SELECT.one.from(Employees).where({ UserId: userId }));
+    if (!emp) return req.reject(404, `Employee not found for UserId: ${userId}`);
+
+    const dPaths = await tx.run(SELECT.from(DevelopmentPlan).where({ employee_ID: emp.ID }));
+    if (!dPaths) return req.reject(404, `Development Path not found for employee: ${emp.ID}`);
+
+    return dPaths;
+  }
+
+  //fetch Resource Manager data
+  const RMInformation = async (req) => {
+    const tx = cds.tx(req);
+
+    const userId = req?.user?.id;
+    if (!userId) return req.reject(401, "No logged-in user id available");
+
+    const emp = await tx.run(SELECT.one.from(Employees).where({ UserId: userId }));
+    if (!emp) return req.reject(404, `Employee not found for UserId: ${userId}`);
+
+    const rmName = await tx.run(SELECT.from(resourceManager).where({ employee_ID: emp.ID }));
+
+    if (!rmName) return req.reject(404, `Resource Manager not found for employee: ${emp.ID}`);
+
+    return rmName;
+  }
+
+  return { WellBeingRemaining, PTOHours, nextHoliday, coachInformaiton, devPath, RMInformation };
 };

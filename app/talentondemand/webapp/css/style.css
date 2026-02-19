@@ -1,6 +1,80 @@
-.hdrTalentGreen.sapMTitle { color: #86BC25 !important; } 
-.hdrRestBlack.sapMTitle   { color: #000000 !important; } 
+.hdrTalentGreen.sapMTitle {
+  color: #86BC25 !important;
+}
 
-.independentCardGrid{
-    align-items: start;
+.hdrRestBlack.sapMTitle {
+  color: #000000 !important;
+}
+
+.independentCardGrid {
+  align-items: start;
+}
+
+.cardStack400 {
+  gap: 2rem;
+}
+
+.bigObjNumber .sapMObjectNumberText {
+  font-size: 1.5rem !important;
+  /* increase number size */
+  line-height: 2rem;
+}
+
+.bigObjNumber .sapMObjectNumberUnit {
+  font-size: 4rem !important;
+  /* optional: unit size */
+}
+
+
+.bigStatus .sapMObjStatusText {
+  font-size: 1.0rem !important;
+  /* bump text size */
+  line-height: 1.0rem;
+}
+
+
+.holidayNavRow .sapMLIB {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.holidayCardNoPad .sapFCardContent {
+  padding: 0;
+  /* lets the nav row span full card width */
+}
+
+.holidayNavRow {
+  margin: 0;
+}
+
+.holidayNavRow .sapMListUl {
+  padding: 0;
+  /* remove UL padding so it truly fills */
+}
+
+.holidayNavRow .sapMLIB {
+  padding: 0;
+  /* we’ll control padding on the inner HBox */
+}
+
+.holidayNavRowInner {
+  padding: 0.75rem 1rem;
+  /* “tile” spacing */
+}
+
+.rmNameEmphasis {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 1.5rem;
+  /* color: var(--sapBrandColor); */
+  /* color: #0B6E2D  !important; */
+   color: #86BC25  !important;
+}
+
+.rmNameEmphasis2 {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 1.2rem;
+  /* color: var(--sapBrandColor); */
+  color: #86BC25  !important;
 }

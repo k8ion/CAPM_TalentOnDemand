@@ -48,7 +48,9 @@
       "minUI5Version": "1.144.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.fe.templates": {}
       }
     },
     "contentDensities": {
@@ -87,16 +89,15 @@
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
-        "path": "talentondemand.view",
-        "async": true,
-        "viewPath": "talentondemand.view"
+        "viewPath": "talentondemand.view",
+        "async": true
       },
       "routes": [
         {
           "name": "RouteTod",
           "pattern": ":?query:",
           "target": [
-            "TargetTod"
+            "Tod"
           ]
         },
         {
@@ -116,10 +117,6 @@
         }
       ],
       "targets": {
-        "TargetTod": {
-          "id": "Tod",
-          "name": "Tod"
-        },
         "Tod": {
           "viewId": "Tod",
           "viewName": "Tod"
@@ -129,8 +126,8 @@
           "viewName": "WellbeingDetails"
         },
         "WellbeingProductList": {
-          "viewId": "WellbeingProductList",
-          "viewName": "WellbeingProductList"
+          "type": "Component",
+          "usage": "wellbeingproducts"
         }
       }
     },
@@ -139,6 +136,15 @@
       "type": "XML",
       "id": "App",
       "async": true
+    },
+
+    "resourceRoots": {
+      "deloittetod.tod.wellbeingproducts": "/wellbeingproducts/webapp/"
+    },
+    "componentUsages": {
+      "wellbeingproducts": {
+        "name": "deloittetod.tod.wellbeingproducts"
+      }
     }
   }
 }

@@ -1,0 +1,115 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout.form"
+>
+    <Dialog
+        id="ptoApplyDialog"
+        title="Apply for Time Off"
+        contentWidth="28rem"
+        draggable="true"
+        resizable="true"
+    >
+        <VBox
+            id="_IDGenVBox6"
+            class="sapUiSmallMargin"
+            renderType="Bare"
+        >
+            <Text
+                id="_IDGenText14"
+                text="Select leave type and enter your lead’s email."
+                class="sapUiSmallMarginBottom"
+            />
+
+            <l:SimpleForm
+                id="_IDGenSimpleForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+            >
+                <l:content>
+                    <Label
+                        id="_IDGenLabel4"
+                        text="Leave type"
+                    />
+                    <Select
+                        id="_IDGenSelect"
+                        selectedKey="{ptoApply>/leaveType}"
+                    >
+                        <items>
+                            <core:Item
+                                id="_IDGenItem"
+                                key="PL"
+                                text="Privilege Leave (PL)"
+                            />
+                            <core:Item
+                                id="_IDGenItem1"
+                                key="CLSL"
+                                text="Casual / Sick Leave (CL/SL)"
+                            />
+                        </items>
+                    </Select>
+
+                    <Label
+                        id="_IDGenLabel5"
+                        text="Start date"
+                    />
+                    <DatePicker
+                        id="_IDGenDatePicker"
+                        value="{ptoApply>/startDate}"
+                        displayFormat="MMM dd, yyyy"
+                        valueFormat="yyyy-MM-dd"
+                    />
+
+                    <Label
+                        id="_IDGenLabel6"
+                        text="End date"
+                    />
+                    <DatePicker
+                        id="_IDGenDatePicker1"
+                        value="{ptoApply>/endDate}"
+                        displayFormat="MMM dd, yyyy"
+                        valueFormat="yyyy-MM-dd"
+                    />
+
+                    <Label
+                        id="_IDGenLabel7"
+                        text="Reason"
+                    />
+                    <TextArea
+                        id="_IDGenTextArea"
+                        value="{ptoApply>/reason}"
+                        growing="true"
+                        rows="3"
+                    />
+
+                    <Label
+                        id="_IDGenLabel8"
+                        text="Lead email"
+                    />
+                    <Input
+                        id="_IDGenInput"
+                        value="{ptoApply>/leadEmail}"
+                        type="Email"
+                        placeholder="lead@deloitte.com"
+                    />
+                </l:content>
+            </l:SimpleForm>
+        </VBox>
+
+        <beginButton>
+            <Button
+                id="_IDGenButton6"
+                text="Send request"
+                type="Emphasized"
+                press=".onPtoSendPress"
+            />
+        </beginButton>
+        <endButton>
+            <Button
+                id="_IDGenButton7"
+                text="Cancel"
+                press=".onPtoCancelPress"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
